@@ -25,4 +25,4 @@ icons/            Íconos de la app
 
 ## Actualizar la app
 Cuando modifiques `index.html`, cambia la versión en `sw.js`
-(`const CACHE = 'gamestation-v1'` → `'gamestation-v2'`) para que los teléfonos descarguen la nueva versión.
+(`const CACHE = 'gamestation-v9'` → `'gamestation-v10'`) para que los teléfonos descarguen la nueva versión.

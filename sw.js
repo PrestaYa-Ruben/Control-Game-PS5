@@ -1,5 +1,5 @@
 // GameStation Control - Service Worker (funciona sin conexión)
-const CACHE = 'gamestation-v1';
+const CACHE = 'gamestation-v9';
 const ASSETS = [
   './',
   './index.html',
@@ -20,6 +20,17 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
   );
   self.clients.claim();
+});
+
+// Tocar una notificación abre la app
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((list) => {
+      for (const c of list) { if ('focus' in c) return c.focus(); }
+      return self.clients.openWindow('./index.html');
+    })
+  );
 });
 
 // Primero la caché; si hay internet se actualiza en segundo plano
