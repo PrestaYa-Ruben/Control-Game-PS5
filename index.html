@@ -42,6 +42,23 @@
     .rounded-2xl.border:not(.border-dashed) { border-width: 1.5px; }
     .rounded-2xl.border-gray-200 { border-color: #d1d5db; }
     .dark .rounded-2xl.dark\:border-gray-700 { border-color: #4b5563; }
+    html:not(.dark) .bg-white.rounded-2xl.border.shadow-sm { background-color: #fafaf7; }
+    /* Relieve en los íconos de las tarjetas (solo el dibujo, no su fondo) */
+    .rounded-2xl.border.shadow-sm i.fa-solid,
+    .rounded-2xl.border.shadow-sm i.fa-brands {
+      text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.95), 1px 1.5px 1.5px rgba(15, 23, 42, 0.38);
+    }
+    .dark .rounded-2xl.border.shadow-sm i.fa-solid,
+    .dark .rounded-2xl.border.shadow-sm i.fa-brands {
+      text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.22), 1px 2px 2px rgba(0, 0, 0, 0.85);
+    }
+    /* Efecto bloque: base sólida muy suave bajo la tarjeta */
+    .rounded-2xl.border.shadow-sm.shadow-sm {
+      box-shadow: 0 3px 0 rgba(15, 23, 42, 0.07), 0 4px 12px -4px rgba(15, 23, 42, 0.10);
+    }
+    .dark .rounded-2xl.border.shadow-sm.shadow-sm {
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.45), 0 6px 16px -6px rgba(0, 0, 0, 0.50);
+    }
     .rounded-2xl.border.shadow-sm {
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 12px -4px rgba(15, 23, 42, 0.10);
     }
@@ -285,7 +302,7 @@
       <div class="text-[10px] uppercase font-semibold tracking-wide text-gray-500 dark:text-gray-400 mb-2">Apariencia</div>
       <div id="menu-theme" class="grid grid-cols-3 gap-1 p-1 rounded-xl bg-gray-100 dark:bg-gray-900"></div>
     </div>
-    <div class="px-4 pb-4 pt-1 text-[10px] text-gray-400 text-center">GameStation Control · v2.1</div>
+    <div class="px-4 pb-4 pt-1 text-[10px] text-gray-400 text-center">GameStation Control · v2.4</div>
   </aside>
 
   <!-- PÁGINA: REPORTES Y ESTADÍSTICAS -->
@@ -2774,7 +2791,7 @@
     // =====================================================================
     //  MÁS AJUSTES DEL SISTEMA
     // =====================================================================
-    const APP_VERSION = '2.1';
+    const APP_VERSION = '2.4';
     const DEFAULT_SYSTEM = {
       business: { nit: '', phone: '', address: '', footer: '¡Gracias por jugar con nosotros!' },
       alerts: { sound: true, style: 'beep', volume: 70, preMinutes: 5, repeat: true, vibrate: true, notify: false },
