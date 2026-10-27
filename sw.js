@@ -1,5 +1,5 @@
 // GameStation Control - Service Worker (funciona sin conexión)
-const CACHE = 'gamestation-v9';
+const CACHE = 'gamestation-v15';
 const ASSETS = [
   './',
   './index.html',
